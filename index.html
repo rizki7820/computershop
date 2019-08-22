@@ -1,8 +1,93 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>Chill</title>
+<title>TECHNO PARTY</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="tes2.css">
+<link  href="https://fonts.googleapis.com/css?family=Hepta+Slab&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
+<div class="topnav">
+  
+    <div class="nav1" id="nav2">
+      <a class="home" href="#">HOME</a>
+      <a href="#">SHOP</a>
+      <a href="#">CATEGORIES</a>
+      <a class="ggwp" style="font-size: 20px;" href="#">TECHNO PARTY</a>
+      <a href="#">CART</a>
+      <a href="#">LOG IN</a>
+      <a href="#">SIGN UP</a>
+    </div>
+</div>
+ <img class="img1" src="mainp.jpg" alt="tes"  >
+
+ <div class="row">
+  <div class="gallery">
+    <figure class="item item1">
+      <img src="laptop3.jpg" class="image1" alt="">
+    </figure>
+    <figure class="item item2">
+      <img src="laptop2.jpg"  class="image1" alt="">
+    </figure>
+    <figure class="item item3">
+      <img src="pc1.jpg" class="image1" alt="">
+    </figure>
+    <figure class="item item4">
+      <img src="pc2.jpg" class="image1" alt="">
+    </figure>
+    <figure class="item item5">
+      <img src="pca1.jpg" class="image1" alt="">
+    </figure>
+    <figure class="item item6">
+      <img src="pca2.png" class="image1" alt="">
+    </figure>
+    <figure class="item item7">
+      <img src="laptop1.jpg" class="image1" alt="">
+    </figure>
+  </div>
+<div class="content">
+  <div class="column">
+    <h3>Our Company IS ?</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, qui, sit. Maiores corporis expedita alias facere quia! Ratione reiciendis ipsum tempora quo! Quam voluptas ipsam assumenda non illo, necessitatibus ullam?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique dolore, possimus sint totam maiores autem tempore vel beatae. Aliquam adipisci dolore molestiae tempora totam vel nisi itaque. A, et, esse! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, totam quasi! Fugiat, officiis. Quam dolores consequatur animi quia hic dolor dolore, assumenda rem. Voluptatum ullam perferendis tenetur, ducimus corporis ea!</p>
+</div>
+</div>
+
+
+</div>
+<div class="footer">
+  <div class="sosmed">
+    <a href="facebook.com">
+  <img style="width: 42px; " src="facebook.png" alt="">
+</a>
+</div>
+  <p> ANYON Course bill pay services provided by Rizali Hafizhi  Inc. under applicable licenses. © 2018 Intuit, Inc. All rights reserved.</p>
+  <p>  Terms, conditions, features, availability, pricing, fees, service and support options subject to change without notice.
+  </p>
+</div>
+<script>
+  window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    document.getElementById("nav2").style.background = "rgba(0,0,0,1)";
+    document.getElementById("nav2").style.transition = "all 0.5s";
+  } else {
+    document.getElementById("nav2").style.background = "rgba(0,0,0,0.3)"
+  }
+}
+document.getElementsByTagName("BODY")[0].onresize = function() {myFunction()};
+var x =0;
+function myFunction (){
+  
+  var i = x -=1;
+  document.getElementById("nav2").style.background= "blue";
+}
+
+
+</script>
+  
 </body>
 </html>
