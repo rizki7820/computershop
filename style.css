@@ -94,7 +94,7 @@ border: 0px solid #000000;
 i {
   margin: 0 10px;
   color: #aaa;
-  cursor: default;
+  cursor: pointer;
 }
 
 .box input[type = "submit"]{

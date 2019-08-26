@@ -17,10 +17,10 @@
 <form class="box" action="home.html" method="post">
 	<h1>Login</h1>
 	<div class="text-container">
- 		 <input type="text">
+ 		 <input type="text" placeholder="Username" required>
 	</div>	
 	<div class="input-container">
- 		 <input type="password" />
+ 		 <input type="password" placeholder="Password" required/>
   			<i class="material-icons visibility">visibility_off</i>
 	</div>
 	
