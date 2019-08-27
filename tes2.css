@@ -12,22 +12,28 @@ body {
 		display: flex;
 	flex-direction: row;
 		justify-content: center;
-		padding: 1.15vw 0;
-
+		padding: 15px 0;
+    overflow: hidden;
 
 }
 
 .nav1 a{
 
-	padding: 1.1vw 0.1vw;
+	padding: 12px 0.1vw;
 	text-decoration: none;
 	color: white;
-	font-size: 1.1vw;
+	font-size: 15px;
 	text-align: center;
 	margin: auto 2.5vw;
 
 
  
+}
+.nav1 .ggwp {
+  font-size: 20px;
+}
+.nav1 .icon {
+  display: none;
 }
 .nav1 :hover {
   color: #555;
@@ -237,3 +243,37 @@ body {
     letter-spacing: 2px;
     word-spacing: 2px;
    }
+@media screen and (max-width: 1000px) {
+  .nav1  {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+  }
+  .nav1 .ggwp{
+    width: 100%;
+    text-align: left;
+    margin-left: 5vw;
+    font-size: 15px;
+  }
+  .nav1 .a{
+    font-size: 10px;
+  }
+   .nav1.responsive a {
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+  }
+
+
+  @media screen and (max-width: 1000px) {
+  .nav1 a:not(:first-child) {display: none;}
+  .nav1 a.icon {
+      display: flex;
+  
+  }
+
+}

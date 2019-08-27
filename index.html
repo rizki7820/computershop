@@ -11,9 +11,8 @@
 <body>
 
 <div class="topnav">
-  
-    <div class="nav1" id="nav2">
-       <a class="ggwp" style="font-size: 1.5vw;" href="#">TECHNO PARTY</a>
+      <div class="nav1" id="nav2">
+       <a class="ggwp"  href="#">TECHNO PARTY</a>
       <a href="#">SHOP</a>
       <a href="#">CATEGORIES</a>
      
@@ -22,6 +21,9 @@
       <a href="#">SIGN UP</a>
       <a class="home" href="#">HOME</a>
       <a href=""><i class="fa fa-search"></i> SEARCH</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
     </div>
 </div>
  <img class="img1" src="mainp.jpg" alt="tes"  >
@@ -147,6 +149,15 @@ function scrollFunction() {
     document.getElementById("nav2").style.transition = "all 0.5s";
   } else {
     document.getElementById("nav2").style.background = "rgba(0,0,0,0.3)"
+  }
+}
+
+function myFunction() {
+  var x = document.getElementById("nav2");
+  if (x.className === "nav1") {
+    x.className += " responsive";
+  } else {
+    x.className = "nav1";
   }
 }
 
