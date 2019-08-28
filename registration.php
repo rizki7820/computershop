@@ -53,8 +53,8 @@
                 <textarea name="ADDRESS" rows="5" cols="50" type="address" placeholder="Enter Your Real Address"></textarea>
                 <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
                 <div class="button1">
-                <input type="submit" value="Cancel" />
-                <input type="submit" name="submit" value="Register Now">
+                <input type="submit" name="cancel" value="Cancel" onClick="window.location='login.php';" />
+                <input type="submit" name="submit" value="Register Now"  >
                  </div>
                 <br><p style="text-align:center"> Already a member ?<a href="login.php"> Sign In</a></p><br>
         </form>        

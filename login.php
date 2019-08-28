@@ -28,8 +28,19 @@
 <!--===============================================================================================-->
 </head>
 <body>
+<?php
+        mysql_connect("localhost","root","");
+        mysql_select_db("shop");
+
+        session_start();
+
+        if(isset($_SESSION['USERNAME'])) {
+        	header('location:index.php');
+        }
+        require_once("koneksi.php");
+?>
 	
-	<div class="limiter">
+	<div class="limiter" action="proseslogin.php" method="post">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
 				<form class="login100-form validate-form flex-sb flex-w">
@@ -41,7 +52,7 @@
 						Username
 					</span>
 					<div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
-						<input class="input100" type="text" name="username" >
+						<input class="input100" type="text" name="USERNAME" >
 						<span class="focus-input100"></span>
 					</div>
 					
@@ -52,7 +63,7 @@
 						<span class="btn-show-pass">
 							<i class="fa fa-eye"></i>
 						</span>
-						<input class="input100" type="password" name="pass" >
+						<input class="input100" type="password" name="PASSWORD" >
 						<span class="focus-input100"></span>
 					</div>
 					
@@ -73,8 +84,8 @@
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Login
+						<button class="login100-form-btn" >
+							Login 
 						</button>
 						
 					</div>
