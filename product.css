@@ -132,6 +132,46 @@ transition: all 0.4s;
 	margin: 0 auto;
 	background-color: rgb(248,248,248 );
 }
+.ordfil{
+	display: flex;
+	flex-flow: row;
+	justify-content:space-between;
+	margin-top: 30px;
+	width: 100%;
+}
+.icon2 {
+		font-size: 20px;
+	padding: 7px;
+	background: white;
+	border-radius:3px;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+	color: black;
+
+
+}
+.icon2 a{
+	text-decoration: none;
+	font-size: 15px;
+	color: black;
+}
+.ordfil .ord a{
+	text-decoration: none;
+	color: black;
+	padding: 20px;
+	font-size: 15px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	
+}
+.ordfil .icon3 i{
+	font-size: 20px;
+	padding: 7px;
+	background: white;
+	border-radius:3px;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+	color: black;
+}
 .pros{
 	display: flex;
 	flex-flow: row wrap;
