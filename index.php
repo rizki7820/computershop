@@ -17,9 +17,9 @@
       <a href="#">CATEGORIES</a>
      
       <a href="#"><i class="fa fa-shopping-cart"></i> CART</a>
-      <a href="login.php">LOG IN</a>
-      <a href="registration.php">SIGN UP</a>
-   
+      <a href="#">LOG IN</a>
+      <a href="#">SIGN UP</a>
+      <a class="home" href="#">HOME</a>
       <a href=""><i class="fa fa-search"></i> SEARCH</a>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
