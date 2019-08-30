@@ -24,14 +24,13 @@ body {
 	color: white;
 	font-size: 15px;
 	text-align: center;
-	margin: auto 3.0vw;
+	margin: auto 2.5vw;
 
 
  
 }
 .nav1 .ggwp {
-  font-size: 25px;
-  align-self: flex-start;
+  font-size: 20px;
 }
 .nav1 .icon {
   display: none;
