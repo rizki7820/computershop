@@ -13,15 +13,16 @@
 <div class="topnav">
       <div class="nav1" id="nav2">
        <a class="ggwp"  href="#">TECHNO PARTY</a>
-      <a href="#">SHOP</a>
+      <a href="product.php">SHOP</a>
       <a href="#">CATEGORIES</a>
      
       <a href="#"><i class="fa fa-shopping-cart"></i> CART</a>
-      <a href="#">LOG IN</a>
-      <a href="#">SIGN UP</a>
-      <a class="home" href="#">HOME</a>
+      <a href="login.php">LOG IN</a>
+      <a href="registration.php">SIGN UP</a>
+   
       <a href=""><i class="fa fa-search"></i> SEARCH</a>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      
     <i class="fa fa-bars"></i>
   </a>
     </div>
