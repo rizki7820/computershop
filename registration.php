@@ -3,7 +3,7 @@
 <head>
     <title>Registration Form</title>
     <link href="https://fonts.googleapis.com/css?family=Hepta+Slab&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="regist.css">
+    <link rel="stylesheet" type="text/css" href="css/regist.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
@@ -23,7 +23,7 @@
         $newID=$char.sprintf("%03s",$nourut);
 
     ?>
-        <form class="box-form" action="prosesdaftar.php" method="post">
+        <form class="box-form" action="process/prosesdaftar.php" method="post">
         <h1>Register</h1>
         <h5>Please fill in this form to create an account.</h5><hr>
             <input type="hidden" name="ID_MEMBER" value="<?php echo $newID;?>" readonly="readonly"><br>

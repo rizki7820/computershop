@@ -177,17 +177,23 @@ transition: all 0.4s;
 .pros{
 	display: flex;
 	flex-flow: row wrap;
-<<<<<<< HEAD
-	justify-content:justify-content;
-=======
+	align-content:center;
+	margin-left: 0;
 	justify-content:flex-start;
 	align-content:center;
 	margin-left: 0;
->>>>>>> rizki
 	width: 100%;
 
 
 }
+
+#category {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+=======
 
 #category {
   list-style-type: none;
