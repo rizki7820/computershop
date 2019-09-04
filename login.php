@@ -33,9 +33,7 @@
 
         session_start();
 
-        if(isset($_SESSION['USERNAME'])) {
-        	header('location:index.php');
-        }
+       
         require_once("koneksi.php");
 ?>
 	

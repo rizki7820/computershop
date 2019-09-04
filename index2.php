@@ -4,7 +4,7 @@
 <title>TECHNO PARTY</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/tes2.css">
+<link rel="stylesheet" href="css/index2.css">
 <link  href="https://fonts.googleapis.com/css?family=Hepta+Slab&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -12,29 +12,25 @@
 
 <div class="topnav">
       <div class="nav1" id="nav2">
-       <a class="ggwp"  href="#">TECHNO PARTY</a>
-      <a href="product.php">SHOP</a>
-      
-       <div class="dropdown">
+		<div class="nleft">
+	      <a class="ggwp"  href="#">TECHNO PARTY</a>
+	      <a href="product.php">SHOP</a>
+	      <div class="dropdown">
 	      <a href="#">CATEGORIES</a>
 				 <div class="dropdown-content">
-			      <a href="#">Desktop Computer</a>
+				  <a href="#">Desktop Computer</a>
 			      <a href="#">Laptop</a>
 			      <a href="#">Note Book</a>
 			      <a href="#">Accessories</a>
 			      <a href="#">Spare Part</a>
 			     </div>
 	    </div>
-     
-      <a href="#"><i class="fa fa-shopping-cart"></i> CART</a>
-      <a href="login.php">LOG IN</a>
-      <a href="registration.php">SIGN UP</a>
-   
-      <a href=""><i class="fa fa-search"></i> SEARCH</a>
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-      
-    <i class="fa fa-bars"></i>
-  </a>
+		</div>
+		<div class="nright">
+	      <a href="#"><i class="fa fa-shopping-cart"></i> CART</a>
+	      <a id="nava" href="#"><i class="fa fa-user-circle"></i>  ACCOUNT</a>
+	      <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+	     </div> 
     </div>
 </div>
  <img class="img1" src="images/mainslideshow/mainp.jpg" alt="tes"  >
@@ -90,7 +86,7 @@
 		<a href="#">Note Book</a>
 		</div>
 		<div class="cat1">
-			<img src="categories/cat2.jpg" alt="">
+			<img src="images/categories/cat2.jpg" alt="">
 		<a href="#">PC All In One</a>
 		</div>
 		<div class="cat1">
@@ -155,11 +151,15 @@
   window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
+	var x = document.getElementById("nava");
   if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
     document.getElementById("nav2").style.background = "rgba(0,0,0,1)";
     document.getElementById("nav2").style.transition = "all 0.5s";
+    x.className += " nava2";
+
   } else {
-    document.getElementById("nav2").style.background = "rgba(0,0,0,0.3)"
+    document.getElementById("nav2").style.background = "rgba(0,0,0,0.3)";
+    x.classList.remove("nava2");
   }
 }
 
@@ -168,7 +168,7 @@ function myFunction() {
   if (x.className === "nav1") {
     x.className += " responsive";
   } else {
-    x.className = "nav1";
+    x.className == "nav1";
   }
 }
 

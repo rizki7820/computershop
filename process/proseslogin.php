@@ -11,10 +11,10 @@
        echo "<div align='center'>Username Belum Terdaftar! <a href='../login.php'>Back</a></div>";
    } else {
        if($PASSWORD <> $hasil['PASSWORD']) {
-           echo "<div align='center'>Password salah! <a href='login.php'>Back</a></div>";
+           echo "<div align='center'>Password salah! <a href='../login.php'>Back</a></div>";
      } else {
          $_SESSION['USERNAME'] = $hasil['USERNAME'];
-         header('location:index.php');
+         header('location:../index.php');
         }
     }
 ?>

@@ -66,7 +66,16 @@ if(isset($_GET["action"]))
       <div class="nav1" id="nav2">
 	      <a class="ggwp"  href="index.php">TECHNO PARTY</a>
 	      <a href="#">SHOP</a>
+	      <div class="dropdown">
 	      <a href="#">CATEGORIES</a>
+				 <div class="dropdown-content">
+			      <a href="#">Desktop Computer</a>
+			      <a href="#">Laptop</a>
+			      <a href="#">Note Book</a>
+			      <a href="#">Accessories</a>
+			      <a href="#">Spare Part</a>
+			     </div>
+			 </div>
 	     
 	      <a href="#"><i class="fa fa-shopping-cart"></i> CART</a>
 	      <a href="login.php">LOG IN</a>
@@ -163,7 +172,7 @@ function myFunction() {
       li[i].style.display = "none";
     }
   }
-}
+};
 </script>
 </body>
 </html>

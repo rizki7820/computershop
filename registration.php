@@ -9,12 +9,10 @@
 </head>
 <body>
     <?php
-        mysql_connect("localhost","root","");
-        mysql_select_db("shop");
-
+        require_once("koneksi.php");
         $query="SELECT max(ID_MEMBER) as maxID FROM member";
-        $hasil=mysql_query($query);
-        $data=mysql_fetch_array($hasil);
+        $hasil=mysqli_query($koneksi,$query);
+        $data=mysqli_fetch_array($hasil);
         $ID_MEMBERS=$data['maxID'];
 
         $nourut=(int) substr($ID_MEMBERS,3,3);
