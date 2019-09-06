@@ -4,7 +4,8 @@
    $password  = "";
    $db  = "shop";
 
-   $koneksi = mysqli_connect ($hostname,$username,$password,$db);
+  $connect = new PDO("mysql:host=localhost;dbname=shop", "root", "");
+
 
 	if(mysqli_connect_errno()){
 		echo "Koneksi Database Gagal : ".mysqli_connect_error();

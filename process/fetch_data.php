@@ -2,24 +2,24 @@
 
 //fetch_data.php
 
-include('process/koneksi.php');
+include('database_connection.php');
 
 if(isset($_POST["action"]))
 {
 	$query = "
-		SELECT * FROM product WHERE ID_PRODUCT > '0'
+		SELECT * FROM tbl_product WHERE id > '0'
 	";
 	if(isset($_POST["minimum_price"], $_POST["maximum_price"]) && !empty($_POST["minimum_price"]) && !empty($_POST["maximum_price"]))
 	{
 		$query .= "
-		 AND PRICE BETWEEN '".$_POST["minimum_price"]."' AND '".$_POST["maximum_price"]."'
+		 AND price BETWEEN '".$_POST["minimum_price"]."' AND '".$_POST["maximum_price"]."'
 		";
 	}
 	if(isset($_POST["brand"]))
 	{
 		$brand_filter = implode("','", $_POST["brand"]);
 		$query .= "
-		 AND BRAND IN('".$brand_filter."')
+		 AND product_brand IN('".$brand_filter."')
 		";
 	}
 	
@@ -36,13 +36,11 @@ if(isset($_POST["action"]))
 			$output .= '
 			
 			<div class="pro1" id="pro1" >
-				    		<a href="">'.$row["NAME"].'</a>
-				    		<img src="images/'.$row["IMAGE"].'" alt="">
-				    		<p class="price">$ '.$row["PRICE"].'</p>
-			  				<p  class="des">'.$row["DESCRIBE"].'</p>
-			  				<p><input type="text" name="quantity" id="quantity'. $row["ID_PRODUCT"].'" class="form-control" value="1" />  </p>
-			  				<p><input type="button" name="add_to_cart" id="'. $row["ID_PRODUCT"].'" class="cartb" value="Add to Cart" /> </p>
-				    		
+				    		<a href="">'.$row["name"].'</a>
+				    		<img src="images/'.$row["image"].'" alt="">
+				    		<p class="price">$ '.$row["price"].'</p>
+			  				<p  class="des">'.$row["product_brand"].'</p>
+				    		<p><button>Add to Cart</button></p>
 				    	</div>
 			';
 		}

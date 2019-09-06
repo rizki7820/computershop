@@ -1,8 +1,55 @@
 <?php 
+session_start();
+$connect = mysqli_connect("localhost", "root", "", "testing");
 
-//index.php
+if(isset($_POST["add_to_cart"]))
+{
+	if(isset($_SESSION["shopping_cart"]))
+	{
+		$item_array_id = array_column($_SESSION["shopping_cart"], "item_id");
+		if(!in_array($_GET["id"], $item_array_id))
+		{
+			$count = count($_SESSION["shopping_cart"]);
+			$item_array = array(
+				'item_id'			=>	$_GET["id"],
+				'item_name'			=>	$_POST["hidden_name"],
+				'item_price'		=>	$_POST["hidden_price"],
+				'item_quantity'		=>	$_POST["quantity"]
+			);
+			$_SESSION["shopping_cart"][$count] = $item_array;
+		}
+		else
+		{
+			echo '<script>alert("Item Already Added")</script>';
+		}
+	}
+	else
+	{
+		$item_array = array(
+			'item_id'			=>	$_GET["id"],
+			'item_name'			=>	$_POST["hidden_name"],
+			'item_price'		=>	$_POST["hidden_price"],
+			'item_quantity'		=>	$_POST["quantity"]
+		);
+		$_SESSION["shopping_cart"][0] = $item_array;
+	}
+}
 
-include('process/koneksi.php');
+if(isset($_GET["action"]))
+{
+	if($_GET["action"] == "delete")
+	{
+		foreach($_SESSION["shopping_cart"] as $keys => $values)
+		{
+			if($values["item_id"] == $_GET["id"])
+			{
+				unset($_SESSION["shopping_cart"][$keys]);
+				echo '<script>alert("Item Removed")</script>';
+				echo '<script>window.location="index.php"</script>';
+			}
+		}
+	}
+}
 
 ?>
 <html>
@@ -11,12 +58,16 @@ include('process/koneksi.php');
 	<title>TECHNO PARTY</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/product.css">
-<link href='https://fonts.googleapis.com/css?family=Hepta Slab' rel='stylesheet'>
+<link  href="https://fonts.googleapis.com/css?family=Hepta+Slab&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
- <script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery-1.10.2.min.js"></script>
 <script src="js/jquery-ui.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <link href = "css/jquery-ui.css" rel = "stylesheet">
+    <!-- Custom CSS -->
+<link href="css/style.css" rel="stylesheet">
 
 </head>
 <body>
@@ -28,12 +79,6 @@ include('process/koneksi.php');
 	      <a href="#">CATEGORIES</a>
 				 <div class="dropdown-content">
 			      <a href="#">Desktop Computer</a>
-                    <div class="submenu">\
-                        <a href="">Link 1</a>
-                        <a href="">Link 2</a>
-                        <a href="">Link 3</a>
-                        
-                    </div>
 			      <a href="#">Laptop</a>
 			      <a href="#">Note Book</a>
 			      <a href="#">Accessories</a>
@@ -41,8 +86,7 @@ include('process/koneksi.php');
 			     </div>
 			 </div>
 	     
-	      
-          <a href="#"><span class="badge"><?php if(isset($_SESSION["shop"])) { echo count($_SESSION["shop"]); } else { echo '0';}?></span> <i class="fa fa-shopping-cart"></i> CART</a>
+	      <a href="#"><i class="fa fa-shopping-cart"></i> CART</a>
 	      <a href="login.php">LOG IN</a>
 	      <a href="registration.php">SIGN UP</a>
 	   
@@ -68,38 +112,12 @@ include('process/koneksi.php');
     		<div class="side sfilt">
     			<a class="tl" href="">FILTER</a>
     			<a href="#">Price Range</a>
-    			<div class="pricer">
-                    <input type="hidden" id="hidden_minimum_price" value="50" />
-                    <input type="hidden" id="hidden_maximum_price" value="500" />
-                    <p id="price_show">50 - 500</p>
-                    <div id="price_range"></div>
-                 </div>
-    			<div class="brander">
-                    <a href="#">Brand</a>
-
-                    <div style="height: 180px; overflow-y: auto; overflow-x: hidden;">
-                    <?php
-
-                    $query = "SELECT DISTINCT(BRAND) FROM product WHERE ID_PRODUCT >'0' ORDER BY ID_PRODUCT DESC";
-                    $statement = $connect->prepare($query);
-                    $statement->execute();
-                    $result = $statement->fetchAll();
-                    foreach($result as $row)
-                    {
-                    ?>
-                    <div class="list-group-item checkbox">
-                        <label><input type="checkbox" class="common_selector brand" value="<?php echo $row['BRAND']; ?>"  > <?php echo $row['BRAND']; ?></label>
-                    </div>
-                    <?php
-                    }
-
-                    ?>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    <div class="row1" id="row1">
+    			<a href="#">Brand</a>
+    			<a href="#">Highest Price</a>
+    			<a href="#">Lowest Price</a>
+    		</div>
+    	</div>
+    <div class="row" id="row">
 
     	<div class="ordfil">
     		<div class="icon2">
@@ -112,7 +130,8 @@ include('process/koneksi.php');
     		</div>
     	</div>
    	  	<div class="pros">
-   	  	    	
+   	  	
+				    	
 	    	
 	    	</div>
 		</div>
@@ -158,7 +177,7 @@ $(document).ready(function(){
 
     function filter_data()
     {
-        $('.pros').html('<div id="loading" style="" ></div>');
+        $('.filter_data').html('<div id="loading" style="" ></div>');
         var action = 'fetch_data';
         var minimum_price = $('#hidden_minimum_price').val();
         var maximum_price = $('#hidden_maximum_price').val();
@@ -166,7 +185,7 @@ $(document).ready(function(){
         $.ajax({
             url:"fetch_data.php",
             method:"POST",
-            data:{action:action, minimum_price:minimum_price, maximum_price:maximum_price, brand:brand},
+            data:{action:action, minimum_price:minimum_price, maximum_price:maximum_price},
             success:function(data){
                 $('.pros').html(data);
             }

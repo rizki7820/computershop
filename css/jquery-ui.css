@@ -749,6 +749,8 @@ button.ui-button::-moz-focus-inner {
 
 .ui-slider-horizontal {
 	height: .8em;
+	width: 16.1vw;
+	margin-left: 1.1vw;
 }
 .ui-slider-horizontal .ui-slider-handle {
 	top: -.3em;
