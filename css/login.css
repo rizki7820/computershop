@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Hepta+Slab&display=swap');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+body {
+	margin: 0;
+	padding: 0;
+	font-family:'Hepta Slab', serif;
+	background: url(bg5.jpg) no-repeat ;
+}
+
+.box {
+	max-width: 300px;
+	padding: 40px;
+	position: absolute;
+	top: 50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	background: #191919;
+	text-align: center;
+	border-radius: 30px 30px 30px 30px;
+-moz-border-radius: 30px 30px 30px 30px;
+-webkit-border-radius: 30px 30px 30px 30px;
+border: 0px solid #000000;
+
+}
+.box h1{
+	font-weight: 500;
+	color: white;
+	text-transform: uppercase;
+}
+
+.text-container {
+  margin: 10px 10px;
+  display: flex;
+  align-items: center;
+}
+
+.text-container input{
+	border:0;
+	font-family:'Hepta Slab', serif;
+	background: none;
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+	border: 2px solid #3498db;
+	padding: 16px 35px;
+	max-width: 250px;
+	outline: none;
+	color: white;
+	border-radius: 24px;
+	transition: 0.25s;
+
+}
+
+.username input{
+	border:0;
+	font-family:'Hepta Slab', serif;
+	background: none;
+	display: block;
+	margin: 10px auto;
+	text-align: center;
+	border: 2px solid #3498db;
+	padding: 12px 35px;
+	width: 320px;
+	outline: none;
+	color: white;
+	border-radius: 24px;
+	transition: 0.25s;
+
+}
+
+.input-container {
+  margin: 10px 25px;
+  display: flex;
+  align-items: center;
+  border: 2px solid #3498db;
+  border-radius: 24px;
+
+}
+
+.input-container:hover{
+	border: 2px solid #2ecc71;
+	transition: 0.25s;
+}
+
+.input-container input {
+  	border:0;
+	font-family:'Hepta Slab', serif;
+	background: none;
+	display: block;
+	margin: 1px 1px;
+	text-align: center;
+	border: 0px solid #3498db;
+	padding: 14px 10px;
+	width: 200px;
+	outline: none;
+	color: white;
+	border-radius: 24px;
+	transition: 0.25s;
+}
+.text-container input:hover{
+	border-color: #2ecc71;
+}
+
+
+
+
+
+i {
+  margin: 0 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.box input[type = "submit"]{
+	border:0;
+	background: none;
+	font-family:'Hepta Slab', serif;
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+	border: 2px solid #2ecc71;
+	padding: 14px 10px;
+	width: 200px;
+	outline: none;
+	color: white;
+	border-radius: 24px;
+	transition: 0.25s;
+	cursor: pointer;
+}
+.box input[type = "submit"]:hover{
+	background: #2ecc71;
+}
+
+.box a{
+	text-decoration: none;
+	font-size: 12px;
+	line-height: 20px;
+	color: darkgrey;
+}
+
+.box a:hover{
+	color: #2ecc71;
+}
+
+/*==================================================================
+[ Restyle Checkbox ]*/
+
+.input-checkbox100 {
+  display: none;
+}
+
+.label-checkbox100 {
+  font-family: 'Hepta Slab', serif;
+  font-size: 13px;
+  color: #999999;
+  line-height: 1.4;
+
+  display: block;
+  position: relative;
+  padding-left: 26px;
+  cursor: pointer;
+}
+
+.label-checkbox100::before {
+  content: "\f00c";
+  font-family: FontAwesome;
+  font-size: 13px;
+  color: transparent;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  max-width: 18px;
+  max-height: 18px;
+  border-radius: 2px;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.input-checkbox100:checked + .label-checkbox100::before {
+  color: #2ecc71;
+}
+
+.flex-sb-m {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	justify-content: space-between;
+	-ms-align-items: center;
+	align-items: center;
+}
+
+.w-full {max-width: 100%;}
+.p-b-48 {padding-bottom: 48px;}
+
+
+
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Responsive ]*/
+
+@media (max-width: 576px) {
+  .wrap-login100 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
