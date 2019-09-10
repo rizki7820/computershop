@@ -2,7 +2,7 @@
 
 //fetch_data.php
 
-include('process/koneksi.php');
+include('connection/connection.php');
 
 if(isset($_POST["action"]))
 {
