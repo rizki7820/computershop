@@ -2,7 +2,7 @@
 
 //index.php
 
-include('process/koneksi.php');
+include('connection/database_connection.php');
 
 ?>
 <html>
