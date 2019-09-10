@@ -23,7 +23,7 @@
         $newID=$char.sprintf("%03s",$nourut);
 
     ?>
-        <form class="box-form" action="process/prosesdaftar.php" method="post">
+        <form class="box-form" action="process/registerprocess.php" method="post">
         <h1>Register</h1>
         <h5>Please fill in this form to create an account.</h5><hr>
             <input type="hidden" name="ID_MEMBER" value="<?php echo $newID;?>" readonly="readonly"><br>

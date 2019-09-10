@@ -1,55 +1,8 @@
 <?php 
-session_start();
-$connect = mysqli_connect("localhost", "root", "", "testing");
 
-if(isset($_POST["add_to_cart"]))
-{
-	if(isset($_SESSION["shopping_cart"]))
-	{
-		$item_array_id = array_column($_SESSION["shopping_cart"], "item_id");
-		if(!in_array($_GET["id"], $item_array_id))
-		{
-			$count = count($_SESSION["shopping_cart"]);
-			$item_array = array(
-				'item_id'			=>	$_GET["id"],
-				'item_name'			=>	$_POST["hidden_name"],
-				'item_price'		=>	$_POST["hidden_price"],
-				'item_quantity'		=>	$_POST["quantity"]
-			);
-			$_SESSION["shopping_cart"][$count] = $item_array;
-		}
-		else
-		{
-			echo '<script>alert("Item Already Added")</script>';
-		}
-	}
-	else
-	{
-		$item_array = array(
-			'item_id'			=>	$_GET["id"],
-			'item_name'			=>	$_POST["hidden_name"],
-			'item_price'		=>	$_POST["hidden_price"],
-			'item_quantity'		=>	$_POST["quantity"]
-		);
-		$_SESSION["shopping_cart"][0] = $item_array;
-	}
-}
+//index.php
 
-if(isset($_GET["action"]))
-{
-	if($_GET["action"] == "delete")
-	{
-		foreach($_SESSION["shopping_cart"] as $keys => $values)
-		{
-			if($values["item_id"] == $_GET["id"])
-			{
-				unset($_SESSION["shopping_cart"][$keys]);
-				echo '<script>alert("Item Removed")</script>';
-				echo '<script>window.location="index.php"</script>';
-			}
-		}
-	}
-}
+include('process/koneksi.php');
 
 ?>
 <html>
@@ -58,17 +11,38 @@ if(isset($_GET["action"]))
 	<title>TECHNO PARTY</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/product.css">
-<link  href="https://fonts.googleapis.com/css?family=Hepta+Slab&display=swap" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Hepta Slab' rel='stylesheet'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+ <script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<link href = "css/jquery-ui.css" rel = "stylesheet">
+
 </head>
 <body>
 	<div class="topnav">
       <div class="nav1" id="nav2">
 	      <a class="ggwp"  href="index.php">TECHNO PARTY</a>
 	      <a href="#">SHOP</a>
+	      <div class="dropdown">
 	      <a href="#">CATEGORIES</a>
+				 <div class="dropdown-content">
+			      <a href="#">Desktop Computer</a>
+                    <div class="submenu">\
+                        <a href="">Link 1</a>
+                        <a href="">Link 2</a>
+                        <a href="">Link 3</a>
+                        
+                    </div>
+			      <a href="#">Laptop</a>
+			      <a href="#">Note Book</a>
+			      <a href="#">Accessories</a>
+			      <a href="#">Spare Part</a>
+			     </div>
+			 </div>
 	     
-	      <a href="#"><i class="fa fa-shopping-cart"></i> CART</a>
+	      
+          <a href="#"><span class="badge"><?php if(isset($_SESSION["shop"])) { echo count($_SESSION["shop"]); } else { echo '0';}?></span> <i class="fa fa-shopping-cart"></i> CART</a>
 	      <a href="login.php">LOG IN</a>
 	      <a href="registration.php">SIGN UP</a>
 	   
@@ -94,12 +68,38 @@ if(isset($_GET["action"]))
     		<div class="side sfilt">
     			<a class="tl" href="">FILTER</a>
     			<a href="#">Price Range</a>
-    			<a href="#">Brand</a>
-    			<a href="#">Highest Price</a>
-    			<a href="#">Lowest Price</a>
-    		</div>
-    	</div>
-    <div class="row" id="row">
+    			<div class="pricer">
+                    <input type="hidden" id="hidden_minimum_price" value="50" />
+                    <input type="hidden" id="hidden_maximum_price" value="500" />
+                    <p id="price_show">50 - 500</p>
+                    <div id="price_range"></div>
+                 </div>
+    			<div class="brander">
+                    <a href="#">Brand</a>
+
+                    <div style="height: 180px; overflow-y: auto; overflow-x: hidden;">
+                    <?php
+
+                    $query = "SELECT DISTINCT(BRAND) FROM product WHERE ID_PRODUCT >'0' ORDER BY ID_PRODUCT DESC";
+                    $statement = $connect->prepare($query);
+                    $statement->execute();
+                    $result = $statement->fetchAll();
+                    foreach($result as $row)
+                    {
+                    ?>
+                    <div class="list-group-item checkbox">
+                        <label><input type="checkbox" class="common_selector brand" value="<?php echo $row['BRAND']; ?>"  > <?php echo $row['BRAND']; ?></label>
+                    </div>
+                    <?php
+                    }
+
+                    ?>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    <div class="row1" id="row1">
 
     	<div class="ordfil">
     		<div class="icon2">
@@ -112,29 +112,7 @@ if(isset($_GET["action"]))
     		</div>
     	</div>
    	  	<div class="pros">
-   	  	<?php
-				$query = "SELECT * FROM tbl_product ORDER BY id ASC";
-				$result = mysqli_query($connect, $query);
-				if(mysqli_num_rows($result) > 0)
-				{
-					while($row = mysqli_fetch_array($result))
-					{
-				?>
-				<div class="pro1" method="post" class="pro1" action="index.php?action=add&id=<?php echo $row["id"]; ?>">
-				    		<a href=""><?php echo $row["name"]; ?></a>
-				    		<img src="images/<?php echo $row["image"]; ?>" alt="">
-				    		<p class="price">$ <?php echo $row["price"]; ?></p>
-			  				<p  class="des">Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-				    		<p><button>Add to Cart</button></p>
-				    	</div>
-			
-					
-		
-			<?php
-					}
-				}
-			?>
-				    	
+   	  	    	
 	    	
 	    	</div>
 		</div>
@@ -149,6 +127,7 @@ if(isset($_GET["action"]))
   </p>
 </div>
 <script>
+	var i = 0 ;
 function myFunction() {
   var input, filter, ul, li, a, i;
   input = document.getElementById("mySearch");
@@ -163,7 +142,66 @@ function myFunction() {
       li[i].style.display = "none";
     }
   }
+};
+
+function cartFunction (){
+	i++;
+	var cartp =[];
+	cartp[0]=document.getElementById("")
+
+
 }
+
+$(document).ready(function(){
+
+    filter_data();
+
+    function filter_data()
+    {
+        $('.pros').html('<div id="loading" style="" ></div>');
+        var action = 'fetch_data';
+        var minimum_price = $('#hidden_minimum_price').val();
+        var maximum_price = $('#hidden_maximum_price').val();
+        var brand = get_filter('brand');
+        $.ajax({
+            url:"fetch_data.php",
+            method:"POST",
+            data:{action:action, minimum_price:minimum_price, maximum_price:maximum_price, brand:brand},
+            success:function(data){
+                $('.pros').html(data);
+            }
+        });
+    }
+
+    function get_filter(class_name)
+    {
+        var filter = [];
+        $('.'+class_name+':checked').each(function(){
+            filter.push($(this).val());
+        });
+        return filter;
+    }
+
+    $('.common_selector').click(function(){
+        filter_data();
+    });
+
+    $('#price_range').slider({
+        range:true,
+        min:100,
+        max:500,
+        values:[50, 500],
+        step:10,
+        stop:function(event, ui)
+        {
+            $('#price_show').html(ui.values[0] + ' - ' + ui.values[1]);
+            $('#hidden_minimum_price').val(ui.values[0]);
+            $('#hidden_maximum_price').val(ui.values[1]);
+            filter_data();
+        }
+    });
+
+});
 </script>
 </body>
 </html>

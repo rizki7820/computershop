@@ -12,8 +12,8 @@ body {
 		display: flex;
 	flex-direction: row;
 		justify-content: center;
-		padding: 15px 0;
-    overflow: hidden;
+    padding: 15px 0;
+    
 
 }
 
@@ -29,7 +29,7 @@ body {
 
  
 }
-.nav1 .ggwp {
+ .nav1 .ggwp {
   font-size: 20px;
 }
 .nav1 .icon {
@@ -63,6 +63,52 @@ body {
 }
 .nav1 a:hover:after {
 	width: 100%;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a{
+    margin: 0;
+    text-align: center;
+    padding: 12px 15px 12px 15px;
+    display: block;
+    text-decoration: none;
+}
+
+.nav1>li{
+    display: inline-block;
+    margin-left: -5px;
+}
+    
+
+.subMenu{
+    position: absolute;
+    display: none;
+}
+.subMenu li{
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    border-radius: 1px;
+    position: relative;
+    background: rgba(0,0,0,0.3);
+}
+.nav1>li:hover .subMenu{
+    display: block;
+}
+.SuperSubMenu{
+    position: absolute;
+    top: 0;
+    right: 0;
+    -ms-transform: translate(100%,0);
+    -webkit-transform: translate(100%,0);
+    transform:translate(100%,0);
+    display: none;
+}
+.subMenu li:hover>.SuperSubMenu{
+    display: block;
 }
 
 .img1 {
@@ -181,7 +227,7 @@ body {
   transition: 0.3s all;
 }
 .categories {
-  width: 98%;
+  width: 95%;
   height: 43vh;
   background-color: white;
   margin: 0 auto;

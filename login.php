@@ -35,15 +35,15 @@
         session_start();
 
         if(isset($_SESSION['USERNAME'])) {
-        	header('location:index.php');
+        	header('location:index_member.php');
         }
-        require_once("koneksi.php");
+        require_once("connection/connection.php");
 ?>
 	
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
-				<form class="login100-form validate-form flex-sb flex-w"  action="process/proseslogin.php" method="post">
+				<form class="login100-form validate-form flex-sb flex-w"  action="process/loginprocess.php" method="post">
 					<span class="login100-form-title p-b-32">
 						Account Login
 					</span>
