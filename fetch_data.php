@@ -2,26 +2,27 @@
 
 //fetch_data.php
 
-include('database_connection.php');
+include('connection/connection.php');
 
 if(isset($_POST["action"]))
 {
 	$query = "
-		SELECT * FROM tbl_product WHERE status = '1'
+		SELECT * FROM product WHERE ID_PRODUCT > '0'
 	";
 	if(isset($_POST["minimum_price"], $_POST["maximum_price"]) && !empty($_POST["minimum_price"]) && !empty($_POST["maximum_price"]))
 	{
 		$query .= "
-		 AND price BETWEEN '".$_POST["minimum_price"]."' AND '".$_POST["maximum_price"]."'
+		 AND PRICE BETWEEN '".$_POST["minimum_price"]."' AND '".$_POST["maximum_price"]."'
 		";
 	}
 	if(isset($_POST["brand"]))
 	{
 		$brand_filter = implode("','", $_POST["brand"]);
 		$query .= "
-		 AND brand IN('".$brand_filter."')
+		 AND BRAND IN('".$brand_filter."')
 		";
 	}
+	
 
 	$statement = $connect->prepare($query);
 	$statement->execute();
@@ -33,14 +34,16 @@ if(isset($_POST["action"]))
 		foreach($result as $row)
 		{
 			$output .= '
-			<div class="col-sm-4 col-lg-3 col-md-3">
-				<div style="border:1px solid #ccc; border-radius:5px; padding:16px; margin-bottom:16px; height:450px;">
-					<img src="image/'. $row['image'] .'" alt="" class="img-responsive" >
-					<p align="center"><strong><a href="#">'. $row['name'] .'</a></strong></p>
-					<h4 style="text-align:center;" class="text-danger" >'. $row['price'] .'</h4>
-				</div>
-
-			</div>
+			
+			<div class="pro1" id="pro1" >
+				    		<a href="">'.$row["NAME"].'</a>
+				    		<img src="images/'.$row["IMAGE"].'" alt="">
+				    		<p class="price">$ '.$row["PRICE"].'</p>
+			  				<p  class="des">'.$row["DESCRIBE"].'</p>
+			  				<p><input type="text" name="quantity" id="quantity'. $row["ID_PRODUCT"].'" class="form-control" value="1" />  </p>
+			  				<p><input type="button" name="add_to_cart" id="'. $row["ID_PRODUCT"].'" class="cartb" value="Add to Cart" /> </p>
+				    		
+				    	</div>
 			';
 		}
 	}

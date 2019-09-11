@@ -9,12 +9,25 @@ body {
 	position: fixed;
 	width: 100%;
 	  background-color: rgba(0,0,0,0.3);
-		display: flex;
+	display: flex;
 	flex-direction: row;
-		justify-content: center;
-    padding: 15px 0;
+	justify-content: space-between;
+	padding: 10px 0;
     
 
+}
+.nleft{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+
+}
+.nright{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
 }
 
 .nav1 a{
@@ -25,11 +38,12 @@ body {
 	font-size: 15px;
 	text-align: center;
 	margin: auto 2.5vw;
-
-
- 
 }
- .nav1 .ggwp {
+.nright{
+  margin-top: 5px;
+}
+
+.nav1 .ggwp {
   font-size: 20px;
 }
 .nav1 .icon {
@@ -45,10 +59,52 @@ body {
 	position: relative;
 
 }
-.lout {
+ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a{
+  margin: 0;
+  text-align: center;
+  padding: 12px 15px 12px 15px;
+  display: block;
+  text-decoration: none;
+}
+
+.nleft>li{
+  display: inline-block;
+  margin-left: -5px;
+}
+  
+
+.subMenu{
+  position: absolute;
   display: none;
 }
-.nav1 :before ,
+.subMenu li{
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  border-radius: 1px;
+  position: relative;
+  background: rgba(0,0,0,0.8);
+}
+.nleft>li:hover .subMenu{
+  display: block;
+}
+.SuperSubMenu{
+  position: absolute;
+  top: 0;
+  right: 0;
+  -ms-transform: translate(100%,0);
+  -webkit-transform: translate(100%,0);
+  transform:translate(100%,0);
+  display: none;
+}
+.subMenu li:hover>.SuperSubMenu{
+  display: block;
+}
+
 .nav1 :after{
 	transition: all 0.5s;
 }
@@ -67,51 +123,9 @@ body {
 .nav1 a:hover:after {
 	width: 100%;
 }
-
-ul{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-a{
-    margin: 0;
-    text-align: center;
-    padding: 12px 15px 12px 15px;
-    display: block;
-    text-decoration: none;
-}
-
-.nav1>li{
-    display: inline-block;
-    margin-left: -5px;
-}
-    
-
-.subMenu{
-    position: absolute;
-    display: none;
-}
-.subMenu li{
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid transparent;
-    border-radius: 1px;
-    position: relative;
-    background: rgba(0,0,0,0.8);
-}
-.nav1>li:hover .subMenu{
-    display: block;
-}
-.SuperSubMenu{
-    position: absolute;
-    top: 0;
-    right: 0;
-    -ms-transform: translate(100%,0);
-    -webkit-transform: translate(100%,0);
-    transform:translate(100%,0);
-    display: none;
-}
-.subMenu li:hover>.SuperSubMenu{
-    display: block;
+.dropdown:hover .dropdown-content {
+  display: block;
+  transition: all 0.5s;
 }
 
 .img1 {
@@ -185,7 +199,7 @@ a{
   flex-direction: row;
   width: 100%;
   background-color:rgba(20,20,20,10); 
-  z-index: 1;
+  z-index: -1;
   padding: 50px 0;
   margin-top: 8vh;
 

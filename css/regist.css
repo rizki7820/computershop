@@ -1,7 +1,7 @@
 body {
 	  padding: 10px 10px 10px 10px;
 	font-family: 'Hepta Slab', serif;
-	background-image: url('images/background/bg5.jpg');
+	background-image: url('../images/background/bg5.jpg');
 }
 
 .box-form {

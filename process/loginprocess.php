@@ -8,13 +8,17 @@
    $hasil = mysqli_fetch_array($cekuser);
 
    if(mysqli_num_rows($cekuser) == 0) {
-       echo "<div align='center'>Username Belum Terdaftar! <a href='../login.php'>Back</a></div>";
+       echo '<script>alert("Username not registered!!!")</script>';
+       echo '<script>window.location.href="../login.php"</script>';
    } else {
        if($PASSWORD <> $hasil['PASSWORD']) {
-           echo "<div align='center'>Password salah! <a href='../login.php'>Back</a></div>";
+        echo '<script>alert("Wrong Password!!!")</script>';
+        echo '<script>window.location.href="../login.php"</script>';
      } else {
          $_SESSION['USERNAME'] = $hasil['USERNAME'];
-         header('location:../index_member.php');
+         echo '<script>alert("Login Success... Welcome)</script>';
+         echo '<script>window.location.href="../index_member.php"</script>';
         }
     }
 ?>
+
