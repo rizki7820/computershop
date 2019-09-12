@@ -1,0 +1,264 @@
+body {
+	margin:0;
+	padding: 0;
+	font-family: 'HEPTA SLAB', serif;
+   background-color: rgb(250,250,250);
+
+}
+.nav1{
+	position: relative;
+	width: 100%;
+	background-color: black;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	padding: 15px 0;
+    z-index: 1;
+
+}
+
+.nav1 a{
+
+	padding: 12px 0.1vw;
+	text-decoration: none;
+	color: white;
+	font-size: 15px;
+	text-align: center;
+	margin: auto 3.0vw;
+ 
+}
+.nav1 .ggwp {
+  font-size: 25px;
+  align-self: flex-start;
+}
+.nav1 .icon {
+  display: none;
+}
+.nav1 :hover {
+  color: #555;
+  transition: all 0.5s;
+
+
+}
+.nav1 a {
+	position: relative;
+
+}
+.dropdown{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+
+ 
+
+}
+.dropdown-content {
+  display: none;
+  position: absolute; 
+  background-color:rgba(0,0,0,0.9);
+  min-width: 100px;
+  width: 250px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+  margin-top: 43px;
+ 
+  overflow: hidden;
+ 
+
+
+}
+
+.dropdown-content a {
+  float: none;
+  color: white;
+  padding: 12px 0px;
+  text-decoration: none;
+display: flex;
+flex-direction: column;	
+  text-align:center;
+
+}
+.submenu{
+	display: none;
+}
+.nav1 :before ,
+.nav1 :after{
+	transition: all 0.5s;
+}
+.nav1 a:after{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: white;
+  height: 1.5px;
+}
+.nav1 a:hover:after {
+	width: 100%;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+  transition: all 0.5s;
+}
+.mpage{
+	width: 100%;
+	margin: 0;
+	height: 1000px;
+	
+	display: flex; 
+	flex-direction: row1;
+
+}
+
+
+.row1{
+	width:70%;
+	margin: 0 auto;
+	background-color: rgb(248,248,248 );
+}
+.ordfil{
+	display: flex;
+	flex-flow: row1;
+	justify-content:space-between;
+	margin-top: 30px;
+	width: 100%;
+}
+.icon2 {
+		font-size: 20px;
+	padding: 7px;
+	background: white;
+	border-radius:3px;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+	color: black;
+	margin-left: 19px;
+
+
+}
+.icon2 a{
+	text-decoration: none;
+	font-size: 15px;
+	color: black;
+}
+.ordfil .ord a{
+	text-decoration: none;
+	color: black;
+	padding: 20px;
+	font-size: 15px;
+	display: flex;
+	flex-direction: row1;
+	justify-content: center;
+	
+}
+.ordfil .icon3 i{
+	font-size: 20px;
+	padding: 7px;
+	background: white;
+	border-radius:3px;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+	color: black;
+	margin-right: 19px;
+}
+.pros{
+	display: flex;
+	flex-direction: row;
+
+	flex-wrap: wrap;
+	
+	align-content:center;
+	margin-left: 0;
+
+	width: 100%;
+
+
+}
+
+#category {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+
+#mySearch {
+  width: 100%;
+  font-size: 18px;
+  padding: 11px;
+  border: 1px solid #ddd;
+}
+.pro1 {
+	display: flex;
+	flex-direction: column;
+	
+	align-items:  center;
+	width: 200px;
+	height: 450px;
+	padding: 40px;
+	background-color: white;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+	margin: 30px 17.3px;
+	text-align: center;
+
+}
+.pro1 img{
+	width: 80%;
+	height: 160px;
+	
+}
+.pro1 a{
+	text-align: center;
+	text-decoration: none;
+	color:black;
+}
+
+
+.price {
+  color: grey;
+  font-size: 20px;
+  
+
+}
+.pro1 .des {
+	height: 400px;
+	width: 100%;
+	max-height: 400px;
+	overflow: hidden;
+	font-size: 12px;
+
+}
+
+.pro1 .cartb {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  font-family:hepta Slab;
+  border-radius: 2px;
+
+}
+
+.pro1 .cartb:hover {
+  opacity: 0.7;
+  transition: 0.3s ease;
+}
+.footer {
+    background-color: #080303;
+    padding: 5px;
+    text-align: center;
+    color: white;
+    font-size: 10px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    z-index: 1;
+   }

@@ -2,27 +2,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>TECHNO PARTY </title>
+<title>TECHNO PARTY</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/tes2.css">
+<link rel="stylesheet" href="css/index2.css">
 <link  href="https://fonts.googleapis.com/css?family=Hepta+Slab&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
-<?php 
-
-//index.php
-
-include('auth.php');
-
-?>
+  
 <div class="topnav">
-      <ul class="nav1" id="nav2">
-	  	  <li><a class="ggwp"  href="#">TECHNO PARTY</a></li>
+      <div class="nav1" id="nav2">
+		<ul class="nleft">
+		<li><a class="ggwp"  href="index_member.php">TECHNO PARTY</a></li>
         <li><a href="product.php">SHOP</a></li>
-	  	  <li><a class="category" href="#">CATEGORIES</a>
-	 		      <ul class="subMenu">
+	  	<li><a class="category" href="product.php">CATEGORIES</a>
+		  <ul class="subMenu">
              <li><a href="#">Desktop Computer</a>
                 <ul class="SuperSubMenu">
                     <li><a href="#">Desktop Tower / Mt / Sff</a>
@@ -270,13 +266,18 @@ include('auth.php');
                  </ul>
              </li>
           </ul>
-        </li>                          
-      <li><a href="#"><i class="fa fa-shopping-cart"></i> CART</a></li>
-      <li><a href="login.php">LOG IN</a></li>
-      <li><a class="lout" href="logout.php" ></i> Logout</a></li>
-      	<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-		  <i class="fa fa-bars"></i></a>
-</ul>    
+        </li>   
+		</ul>             
+		<ul class="nright">
+	    <li><a href="#"><i class="fa fa-shopping-cart"></i> CART</a></li>
+	    <li><a id="nava" href=""><i class="fa fa-user-circle"></i> ACCOUNT</a>
+      <ul class="subMenu">
+             <li><a href="logout.php">Log out</a></li>
+	    <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+      </ul>
+       </li>
+	   </ul> 
+	</div>
 </div>
  <img class="img1" src="images/mainslideshow/mainp.jpg" alt="tes"  >
 
@@ -396,11 +397,15 @@ include('auth.php');
   window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
+	var x = document.getElementById("nava");
   if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
     document.getElementById("nav2").style.background = "rgba(0,0,0,1)";
     document.getElementById("nav2").style.transition = "all 0.5s";
+    x.className += " nava2";
+
   } else {
-    document.getElementById("nav2").style.background = "rgba(0,0,0,0.3)"
+    document.getElementById("nav2").style.background = "rgba(0,0,0,0.3)";
+    x.classList.remove("nava2");
   }
 }
 
@@ -409,7 +414,7 @@ function myFunction() {
   if (x.className === "nav1") {
     x.className += " responsive";
   } else {
-    x.className = "nav1";
+    x.className == "nav1";
   }
 }
 
