@@ -96,7 +96,7 @@ a{
     border-bottom: 1px solid transparent;
     border-radius: 1px;
     position: relative;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.8);
 }
 .nav1>li:hover .subMenu{
     display: block;

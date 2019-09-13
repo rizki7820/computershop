@@ -40,8 +40,10 @@ if(isset($_POST["action"]))
 				    		<img src="images/'.$row["IMAGE"].'" alt="">
 				    		<p class="price">$ '.$row["PRICE"].'</p>
 			  				<p  class="des">'.$row["DESCRIBE"].'</p>
-			  				<p><input type="text" name="quantity" id="quantity'. $row["ID_PRODUCT"].'" class="form-control" value="1" />  </p>
-			  				<p><input type="button" name="add_to_cart" id="'. $row["ID_PRODUCT"].'" class="cartb" value="Add to Cart" /> </p>
+			  				<p><input type="text" name="quantity" id="quantity'.$row["ID_PRODUCT"].'" class="form-control" value="1" />  </p>
+			  				<input type="hidden" name="hidden_name" id="name'.$row["ID_PRODUCT"].'" value="'.$row["NAME"].'" />  
+                               <input type="hidden" name="hidden_price" id="price'.$row["ID_PRODUCT"].'" value="'.$row["PRICE"].'" />  
+			  				<p><input type="button" name="add_to_cart" id="'.$row["ID_PRODUCT"].'" class="add_to_cart cartb" value="Add to Cart"  /> </p>
 				    		
 				    	</div>
 			';

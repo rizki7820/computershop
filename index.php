@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>TECHNO PARTY</title>
+<title>TECHNO PARTY </title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/tes2.css">
@@ -9,7 +9,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+<?php 
 
+//index.php
+
+
+
+?>
 <div class="topnav">
       <ul class="nav1" id="nav2">
 	  	  <li><a class="ggwp"  href="#">TECHNO PARTY</a></li>
@@ -138,7 +144,6 @@
                       <li><a href="#"> Amd Quad Core</a></li>
                       <li><a href="#"> Intel Dual Core</a></li>
                       <li><a href="#"> Intel Xeon</a></li>
-                      </li>
                  </ul>
              </li>
              <li><a href="#">Accessories</a>
@@ -249,7 +254,7 @@
                   <li><a href="#">Pc Headphone and Speaker</a></li>
                          
                      
-                 </ul>
+                </ul>
              </li>
              <li><a href="#">Sparepart</a>
                 <ul class="SuperSubMenu">
@@ -263,16 +268,14 @@
                      </li>
                  </ul>
              </li>
-            </ul>
-        </li>                           
-      <li><a href="#"><i class="fa fa-shopping-cart"></i> CART</a></li>
+          </ul>
+        </li>                          
+      <li><a href="cart.php"><i class="fa fa-shopping-cart"></i> CART</a></li>
       <li><a href="login.php">LOG IN</a></li>
-      <li><a href="registration.php">SIGN UP</a></li>
-   
       <li><a class="lout" href="logout.php" ></i> Logout</a></li>
       	<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-		  <i class="fa fa-bars"></i>
-		</a>
+		  <i class="fa fa-bars"></i></a>
+</ul>    
 </div>
  <img class="img1" src="images/mainslideshow/mainp.jpg" alt="tes"  >
 

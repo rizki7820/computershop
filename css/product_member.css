@@ -8,13 +8,26 @@ body {
 .nav1{
 	position: relative;
 	width: 100%;
-	background-color: black;
+	  background-color: rgba(0,0,0,10);
 	display: flex;
 	flex-direction: row;
-	justify-content: center;
-	padding: 15px 0;
-    z-index: 1;
+	justify-content: space-between;
+	padding: 10px 0;
+    
 
+}
+.nleft{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+
+}
+.nright{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
 }
 
 .nav1 a{
@@ -24,12 +37,14 @@ body {
 	color: white;
 	font-size: 15px;
 	text-align: center;
-	margin: auto 3.0vw;
- 
+	margin: auto 2.5vw;
 }
+.nright{
+  margin-top: 5px;
+}
+
 .nav1 .ggwp {
-  font-size: 25px;
-  align-self: flex-start;
+  font-size: 20px;
 }
 .nav1 .icon {
   display: none;
@@ -44,58 +59,63 @@ body {
 	position: relative;
 
 }
-
 ul{
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
-#ctr a{
-    margin: 0;
-    text-align: center;
-    padding: 12px 15px 12px 15px;
-    display: block;
-    text-decoration: none;
+a{
+  margin: 0;
+  text-align: center;
+  padding: 12px 15px 12px 15px;
+  display: block;
+  text-decoration: none;
 }
 
-.nav1>li{
-    display: inline-block;
-    margin-left: -5px;
+.nleft>li{
+  display: inline-block;
+  margin-left: -5px;
 }
-    
+
+.nright>li{
+  display: inline-block;
+  margin-left: -5px;
+}
+  
 
 .subMenu{
-    position: absolute;
-    display: none;
+  position: absolute;
+  display: none;
 }
 .subMenu li{
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid transparent;
-    border-radius: 1px;
-    position: relative;
-    background: rgba(0,0,0,0.8);
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  border-radius: 1px;
+  position: relative;
+  background: rgba(0,0,0,0.8);
 }
-.nav1>li:hover .subMenu{
-    display: block;
+
+.nleft>li:hover .subMenu{
+  display: block;
+}
+
+.nright>li:hover .subMenu{
+  display: block;
 }
 .SuperSubMenu{
-    position: absolute;
-    top: 0;
-    right: 0;
-    -ms-transform: translate(100%,0);
-    -webkit-transform: translate(100%,0);
-    transform:translate(100%,0);
-    display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  -ms-transform: translate(100%,0);
+  -webkit-transform: translate(100%,0);
+  transform:translate(100%,0);
+  display: none;
 }
+
 .subMenu li:hover>.SuperSubMenu{
-    display: block;
+  display: block;
 }
 
-
-
-.submenu{
-	display: none;
-}
 .nav1 :after{
 	transition: all 0.5s;
 }
@@ -113,6 +133,10 @@ ul{
 }
 .nav1 a:hover:after {
 	width: 100%;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+  transition: all 0.5s;
 }
 
 .mpage{
@@ -161,7 +185,8 @@ ul{
 	background-color: rgba(143,140,140,10);
 	padding: 15px 10px;
 	width: 100%;
-	margin-left: -3;
+	color: black;
+	margin-left: -20px;
 	font-size: 15px;
 	-webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
     -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
@@ -286,8 +311,8 @@ margin-top: -5px;
 	
 	align-items:  center;
 	width: 200px;
-	height: 450px;
-	padding: 40px;
+	height: 500px;
+	padding: 20px;
 	background-color: white;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 	margin: 30px 17.3px;
@@ -303,6 +328,7 @@ margin-top: -5px;
 	text-align: center;
 	text-decoration: none;
 	color:black;
+	font-size: 12px;
 }
 
 
@@ -316,7 +342,7 @@ margin-top: -5px;
 	height: 400px;
 	width: 100%;
 	max-height: 400px;
-	overflow: hidden;
+	overflow: auto;
 	font-size: 12px;
 
 }

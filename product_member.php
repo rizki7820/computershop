@@ -10,7 +10,7 @@ include('connection/connection.php');
 	<meta charset="UTF-8">
 	<title>TECHNO PARTY</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/product.css">
+<link rel="stylesheet" href="css/product_member.css">
 <link href='https://fonts.googleapis.com/css?family=Hepta Slab' rel='stylesheet'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -20,14 +20,15 @@ include('connection/connection.php');
 
 </head>
 <body>
-	<div class="topnav" >
-      <ul class="nav1" id="nav2">
-	      <li><a class="ggwp"  href="index.php">TECHNO PARTY</a></li>
-	      <li><a href="#">SHOP</a></li>
-	      <li><a class="category" href="#">CATEGORIES</a>
-            <ul class="subMenu" id="ctr">
+	<div class="topnav">
+      <div class="nav1" id="nav2">
+    <ul class="nleft">
+    <li><a class="ggwp"  href="index_member.php">TECHNO PARTY</a></li>
+        <li><a href="product.php">SHOP</a></li>
+      <li><a class="category" href="product.php">CATEGORIES</a>
+      <ul class="subMenu">
              <li><a href="#">Desktop Computer</a>
-                <ul class="SuperSubMenu" >
+                <ul class="SuperSubMenu">
                     <li><a href="#">Desktop Tower / Mt / Sff</a>
                       <ul class="SuperSubMenu">
                             <li><a href="#"> Intel Core I5</a></li>
@@ -148,7 +149,6 @@ include('connection/connection.php');
                       <li><a href="#"> Amd Quad Core</a></li>
                       <li><a href="#"> Intel Dual Core</a></li>
                       <li><a href="#"> Intel Xeon</a></li>
-                      </li>
                  </ul>
              </li>
              <li><a href="#">Accessories</a>
@@ -259,7 +259,7 @@ include('connection/connection.php');
                   <li><a href="#">Pc Headphone and Speaker</a></li>
                          
                      
-                 </ul>
+                </ul>
              </li>
              <li><a href="#">Sparepart</a>
                 <ul class="SuperSubMenu">
@@ -268,20 +268,25 @@ include('connection/connection.php');
                          <ul class="SuperSubMenu">
                              <li><a href="#">HTML</a></li>
                              <li><a href="#">CSS</a>
-         
+                             </li>
                          </ul>
                      </li>
                  </ul>
              </li>
           </ul>
-        </li> 
-          <li><a href="cart.php"><span class="badge"><?php if(isset($_SESSION["shop"])) { echo count($_SESSION["shop"]); } else { echo '0';}?></span> <i class="fa fa-shopping-cart"></i> CART</a></li>
-	      <li><a href="login.php">LOG IN</a></li>
-	      <li><a href="registration.php">SIGN UP</a></li>
-	     <li> <a href="#"><i class="fa fa-search"></i> SEARCH</a></li>
-	      <li><a href="javascript:void(0);" class="icon" onclick="myFunction()">
-	   	  <i class="fa fa-bars"></i></a>
-   </div>
+        </li>   
+    </ul>             
+    <ul class="nright">
+      <li><a href="cart.php"><i class="fa fa-shopping-cart"></i> CART</a></li>
+      <li><a id="nava" href=""><i class="fa fa-user-circle"></i> ACCOUNT</a>
+      <ul class="subMenu">
+             <li><a href="logout.php">Log out</a></li>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+      </ul>
+       </li>
+     </ul> 
+  </div>
+</div>
     <div class="mpage">
 		<div class="sidebar">	
     		<div class="side scat">

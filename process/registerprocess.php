@@ -2,7 +2,7 @@
   include "../connection/connection.php";
   $ID_MEMBER=$_POST['ID_MEMBER'];
   $USERNAME=$_POST['USERNAME'];
-  $PASSWORD=$_POST['PASSWORD'];
+  $PASSWORD=md5($_POST['PASSWORD']);
   $NAME=$_POST['NAME'];
   $GENDER=$_POST['GENDER'];
   $EMAIL=$_POST['EMAIL'];
@@ -12,16 +12,19 @@
 $cekuser = mysqli_query($koneksi,"SELECT * FROM member WHERE USERNAME = '$USERNAME'");
 
 if(mysqli_num_rows($cekuser) > 0) {
-       echo "<div align='center'>Username Sudah Terdaftar! <a href='../registration.php'>Back</a></div>";
+       echo '<script>alert("Username already registered!!!")</script>';
+       echo '<script>window.location.href="../registration.php"</script>';
    }
    else {
        if(!$USERNAME || !$PASSWORD) {
-           echo "<div align='center'>Masih Ada Data yang Kosong! <a href='../registration.php'>Back</a>";
+         echo '<script>alert("Fill in all field!!!")</script>';
+         echo '<script>window.location.href="../registration.php"</script>';
         } else {
             $submit = mysqli_query($koneksi,"INSERT INTO member(ID_MEMBER, USERNAME,PASSWORD,NAME,GENDER,CELLPHONE,ADDRESS) VALUES('$ID_MEMBER','$USERNAME','$PASSWORD','$NAME','$GENDER','$CELLPHONE','$ADDRESS')");
 
         if ($submit) {
-              echo "<div align='center'>Pendaftaran Sukses, Silahkan <a href='../login.php'>Login</a></div>";
+            echo '<script>alert("Registered successfully.. Please Login !")</script>';
+            echo '<script>window.location.href="../login.php"</script>';
             } else {
                 echo "<div align='center'>Proses Gagal!</div>";
             }
