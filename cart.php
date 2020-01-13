@@ -101,8 +101,8 @@ include('process/action.php');
                                     </tr>  
                                     <tr>  
                                          <td colspan="5" align="center">  
-                                              <form method="post" action="placeorder.php">  
-                                                   <input type="submit" name="place_order" class="btn btn-warning" value="Place Order" />  
+                                              <form method="post" action="placeorder2.php" target="_blank">  
+                                                   <input type="submit" name="place_order" target="_blank" class="btn btn-warning" value="Place Order" />  
                                               </form>  
                                          </td>  
                                     </tr>  

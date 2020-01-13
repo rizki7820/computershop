@@ -78,7 +78,7 @@
 
                           unset($_SESSION["shop"]);  
                           echo '<script>alert("You have successfully place an order...Thank you")</script>';  
-                          echo '<script>window.location.href="placeorder.php"</script>';  
+                          echo '<script>window.location.href="placeorder2.php"</script>';  
                      }  
                 } 
                 if(isset($_SESSION["order_id"]))  
